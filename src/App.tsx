@@ -1,11 +1,10 @@
+import {coursesTitleArray} from "./data/arrays-2.ts";
+import './App.css'
+
 function App() {
     return (
         <>
-            <ul>
-                <li>Hello World!</li>
-                <li>Hello World!</li>
-                <li>Hello World!</li>
-            </ul>
+            <ul>{coursesTitleArray.map((value, index) => <li key={index}>{value}</li>)}</ul>
         </>
     )
 }
