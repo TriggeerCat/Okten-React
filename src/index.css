@@ -11,3 +11,13 @@
 
   padding: 1.5rem;
 }
+
+.stickyNote {
+  font-family: "Segoe Print", serif;
+
+  background-color: darkkhaki;
+  color: black;
+
+  max-width: 1000px;
+  min-height: 200px;
+}
