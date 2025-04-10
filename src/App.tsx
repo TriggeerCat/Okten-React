@@ -1,11 +1,9 @@
+import {FamilyComponent} from './components/FamilyComponent.tsx';
+
 function App() {
     return (
         <>
-            <ul>
-                <li>Hello World!</li>
-                <li>Hello World!</li>
-                <li>Hello World!</li>
-            </ul>
+            <FamilyComponent/>
         </>
     )
 }
