@@ -1,12 +1,8 @@
 function App() {
     return (
-        <>
-            <ul>
-                <li>Hello World!</li>
-                <li>Hello World!</li>
-                <li>Hello World!</li>
-            </ul>
-        </>
+        <div className='text-2xl'>
+            Hello World!
+        </div>
     )
 }
 

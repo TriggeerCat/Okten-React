@@ -1,0 +1,12 @@
+﻿.sticky-note {
+    font-family: "Segoe Print", serif;
+
+    background-color: darkkhaki;
+    color: black;
+
+    max-width: 1000px;
+    min-height: 200px;
+
+    margin: 20px auto;
+    padding: 10px;
+}
