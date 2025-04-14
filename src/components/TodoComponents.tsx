@@ -17,7 +17,7 @@ export function TodoComponents() {
 
     return (
         <div>
-            {todo ? todo.map(value => <TodoComponent todo={value}/>) : 'nope'}
+            {todo ? todo.map(value => <TodoComponent key={value.id} todo={value}/>) : 'nope'}
         </div>
     )
 }
