@@ -1,8 +1,9 @@
 import {TodoComponents} from "./components/TodoComponents.tsx";
+import "./styles/note.css"
 
 function App() {
     return (
-        <TodoComponents url='https://jsonplaceholder.typicode.com/todos'/>
+        <TodoComponents/>
     )
 }
 

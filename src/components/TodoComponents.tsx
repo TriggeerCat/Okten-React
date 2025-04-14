@@ -1,9 +1,23 @@
 ﻿import {useEffect, useState} from "react";
+import {Todo} from "../types/todo.ts";
+import {TodoComponent} from "./TodoComponent.tsx";
 
-export function TodoComponents(url: string) {
-    const [todo, setTodo] = useState();
+export function TodoComponents() {
+    const [todo, setTodo] = useState<Todo[] | undefined>(undefined);
+
+    async function fetchData(url: string) {
+        const response = await fetch(url);
+        const data = await response.json();
+        setTodo(data);
+    }
+
     useEffect(() => {
-        fetch(url).then((resp) => resp.json()).then((data) => setTodo(data))
+        fetchData('https://jsonplaceholder.typicode.com/todos');
     }, []);
 
+    return (
+        <div>
+            {todo ? todo.map(value => <TodoComponent todo={value}/>) : 'nope'}
+        </div>
+    )
 }
