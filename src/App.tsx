@@ -1,12 +1,8 @@
+import {TodoComponents} from "./components/TodoComponents.tsx";
+
 function App() {
     return (
-        <>
-            <ul>
-                <li>Hello World!</li>
-                <li>Hello World!</li>
-                <li>Hello World!</li>
-            </ul>
-        </>
+        <TodoComponents url='https://jsonplaceholder.typicode.com/todos'/>
     )
 }
 
