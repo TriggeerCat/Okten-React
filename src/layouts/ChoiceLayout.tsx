@@ -1,6 +1,6 @@
 ﻿import {Link, Outlet} from "react-router-dom";
 
-const UsersLayout = () => {
+const ChoiceLayout = () => {
     return (
         <>
             <div className='flex gap-50 text-2xl p-2'>
@@ -15,4 +15,4 @@ const UsersLayout = () => {
     );
 };
 
-export default UsersLayout;
+export default ChoiceLayout;
