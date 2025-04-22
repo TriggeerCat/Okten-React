@@ -49,7 +49,7 @@ interface Address {
   country: string;
 }
 
-interface Bank {
+export interface Bank {
   cardExpire: string;
   cardNumber: string;
   cardType: string;
