@@ -1,5 +1,4 @@
-﻿import {Outlet} from "react-router-dom";
-import {useEffect, useState} from "react";
+﻿import {useEffect, useState} from "react";
 import {Users} from "../types/Users.ts";
 import UserComponent from "../components/UserComponent.tsx";
 
@@ -18,15 +17,13 @@ const MainLayout = () => {
     }, []);
 
     return (
-        <div className='flex'>
-            <div className='p-2 w-1/2'>
+        <>
+            <div className='p-2'>
                 {
                     users ? users.map((value) => <UserComponent key={value.id} user={value}/>) : 'loading...'
                 }
             </div>
-
-            <Outlet/>
-        </div>
+        </>
     );
 };
 

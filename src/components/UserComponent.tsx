@@ -11,7 +11,7 @@ const UserComponent: FC<PropType> = ({user}) => {
     }
 
     return (
-        <div className='w-1/2 m-1'>
+        <div className='m-1'>
             <span className='text-2xl'>{user.firstName} {user.maidenName} {user.lastName}</span>
             <button onClick={handleOnClick} className='mx-2 border-2 text-xl p-1'>Details</button>
         </div>
