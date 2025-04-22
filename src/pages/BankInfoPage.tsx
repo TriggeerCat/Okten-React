@@ -10,7 +10,7 @@ const BankInfoPage = () => {
             <p>Card number: {bank.cardNumber.match(/.{1,4}/g)?.join(' ')}</p>
             <p>Expire date: {bank.cardExpire}</p>
             <p>Card type: {bank.cardType}</p>
-            <p>Card Currency {bank.currency}</p>
+            <p>Card Currency: {bank.currency}</p>
         </div>
     );
 };
