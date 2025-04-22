@@ -6,7 +6,6 @@ const MainLayout = () => {
             <div className='flex justify-between text-2xl p-2'>
                 <Link to={'users'}>Users</Link>
                 <Link to={'posts'}>Posts</Link>
-                <Link to={'comments'}>Comments</Link>
                 <Link to={''}>Home</Link>
             </div>
 
