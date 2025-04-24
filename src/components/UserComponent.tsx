@@ -1,13 +1,15 @@
 ﻿import {FC} from "react";
 import {Users} from "../types/Users.ts";
-import {useNavigate} from "react-router-dom";
+import {useNavigate, useSearchParams} from "react-router-dom";
 
 type PropType = { user: Users }
 
 const UserComponent: FC<PropType> = ({user}) => {
     const navigate = useNavigate();
+    const [query] = useSearchParams();
+
     const handleOnClick = () => {
-        navigate('info/' + user.id.toString(), {state: user.bank});
+        navigate('info/' + user.id.toString(), {state: {bank: user.bank, page: query.get('page')}});
     }
 
     return (

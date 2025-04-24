@@ -1,9 +1,11 @@
-﻿import {useLocation} from "react-router-dom";
+﻿import {useLocation, useNavigate} from "react-router-dom";
 import {Bank} from "../types/Users.ts";
 
 const BankInfoPage = () => {
     const {state} = useLocation();
-    const bank = state as Bank;
+    const bank = state.bank as Bank;
+    const page = state.page as string;
+    const navigate = useNavigate();
 
     return (
         <div className='text-2xl'>
@@ -11,6 +13,8 @@ const BankInfoPage = () => {
             <p>Expire date: {bank.cardExpire}</p>
             <p>Card type: {bank.cardType}</p>
             <p>Card Currency: {bank.currency}</p>
+
+            <button onClick={() => {navigate('../?page=' + page)}} className='mx-2 border-2 text-xl p-1'>Home</button>
         </div>
     );
 };
