@@ -1,0 +1,1 @@
+﻿export const AUTHORIZATION_TOKEN = import.meta.env.VITE_APP_ACCESS_TOKEN
