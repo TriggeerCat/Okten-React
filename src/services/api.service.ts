@@ -17,8 +17,12 @@ export const getMovieList = async (page: string | null) => {
 
 export const getOneMovie = async (id: string | undefined) => {
     if (id) {
-        const {data} = await axiosInstance.get('3/movie/' + id);
-        return data;
+        try {
+            const {data} = await axiosInstance.get('3/movie/' + id);
+            return data;
+        }
+        catch (e) {
+            return e;
+        }
     }
-    else return {status: 'Error'};
 }

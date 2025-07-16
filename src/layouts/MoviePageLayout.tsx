@@ -8,27 +8,30 @@ import {MoviePageTitleComponent} from "../components/MoviePage/MoviePageTitleCom
 import {VideoPreloader} from "../components/Preloaders/VideoPreloader.tsx";
 import {GenreFullComponent} from "../components/MoviePage/GenreFullComponent.tsx";
 import {DescriptionComponent} from "../components/MoviePage/DescriptionComponent.tsx";
+import {DogPage} from "../pages/DogPage.tsx";
 
 export const MoviePageLayout = () => {
+    const [errorCheck, setErrorCheck] = useState<boolean>(false)
     const [movie, setMovie] = useState<MovieFull | null>(null)
     const params = useParams()
 
     useEffect(() => {
-        getOneMovie(params.id).then((rawData) => {setMovie(rawData)})
+        getOneMovie(params.id).then((rawData) => {
+            if (rawData.status === 404) setErrorCheck(true);
+            else setMovie(rawData);
+        })
     }, [params]);
 
-    if (movie) {
-        return (
-            <div className='p-25 flex gap-10 m-auto'>
-                <FullPosterComponent movie={movie}/>
-                <div className='flex flex-col gap-4 w-240'>
-                    <MoviePageTitleComponent originalTitle={movie.original_title} title={movie.title}/>
-                    <VideoPreloader/>
-                    <GenreFullComponent genres={movie.genres}/>
-                    <DescriptionComponent tagline={movie.tagline} overview={movie.overview}/>
-                </div>
+    if (movie) return (
+        <div className='pt-25 mx-25 mb-3 flex gap-10 m-auto'>
+            <FullPosterComponent movie={movie}/>
+            <div className='flex flex-col gap-4 w-240'>
+                <MoviePageTitleComponent originalTitle={movie.original_title} title={movie.title}/>
+                <VideoPreloader/>
+                <GenreFullComponent genres={movie.genres}/>
+                <DescriptionComponent tagline={movie.tagline} overview={movie.overview}/>
             </div>
-        );
-    }
-    else return <MoviePagePreloaderPage/>
+        </div>
+    );
+    else return errorCheck ? <DogPage/> : <MoviePagePreloaderPage/>;
 };
