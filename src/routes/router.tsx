@@ -7,6 +7,6 @@ import {PATHS} from "../constants/Paths.ts";
 export const router = createBrowserRouter([{
     path: '', element: <MainLayout/>, children: [
         {index: true,  element: <MovieListLayout/>},
-        {path: 'info/:id', element: <MoviePageLayout/>}
+        {path: PATHS.moviePage, element: <MoviePageLayout/>}
     ]
 }])

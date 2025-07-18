@@ -9,13 +9,10 @@ type PropsType = {
 export const BudgetComponent: FC<PropsType> = ({budget, revenue}) => {
     if (budget > 0 && revenue > 0)
         return (
-            <>
-                <hr/>
-                <div>
-                    <p>Budget: {numberTransformer(budget)}</p>
-                    <p>Revenue: {numberTransformer(revenue)}</p>
-                </div>
-            </>
+            <div className='border-t-1 border-t-neutral-400 pt-2'>
+                <p>Budget: {numberTransformer(budget)}</p>
+                <p>Revenue: {numberTransformer(revenue)}</p>
+            </div>
         );
     return null;
 };

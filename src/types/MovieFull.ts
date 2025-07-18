@@ -39,9 +39,9 @@ export interface Genres {
   name: string;
 }
 
-interface Production_companies {
+interface ProductionCompanies {
   id: number;
-  logo_path?: any;
+  logo_path?: unknown;
   name: string;
   origin_country: string;
 }
