@@ -1,7 +1,7 @@
 ﻿export interface MovieFull {
     adult: boolean;
     backdrop_path: string;
-    belongs_to_collection: Belongs_to_collection;
+    belongs_to_collection: BelongsToCollection;
     budget: number;
     genres: Genres[];
     homepage: string;
@@ -13,12 +13,12 @@
     overview: string;
     popularity: number;
     poster_path: string;
-    production_companies: Production_companies[];
+    production_companies: ProductionCompanies[];
     production_countries: Production_countries[];
     release_date: string;
     revenue: number;
     runtime: number;
-    spoken_languages: Spoken_language[];
+    spoken_languages: SpokenLanguage[];
     status: string;
     tagline: string;
     title: string;
@@ -27,7 +27,7 @@
     vote_count: number;
 }
 
-interface Belongs_to_collection {
+interface BelongsToCollection {
   id: number;
   name: string;
   poster_path: string;
@@ -51,7 +51,7 @@ interface Production_countries {
   name: string;
 }
 
-interface Spoken_language {
+interface SpokenLanguage {
   english_name: string;
   iso_639_1: string;
   name: string;

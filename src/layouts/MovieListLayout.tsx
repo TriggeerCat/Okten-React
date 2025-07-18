@@ -1,21 +1,28 @@
-﻿import {useEffect, useState} from "react";
-import {getMovieList} from "../services/api.service.ts";
+﻿import {useCallback, useEffect, useState} from "react";
+import {getMovieList, getMovieListBySearch} from "../services/api.service.ts";
 import {MovieShortened} from "../types/MovieShortened.ts";
-import {useSearchParams} from "react-router-dom";
-import {PaginationController} from "../components/Main/PaginationController.tsx";
-import {MovieListCardComponent} from "../components/MovieListCard/MovieListCardComponent.tsx";
-import {MovieListBannedCardComponent} from "../components/MovieListCard/MovieListBannedCardComponent.tsx";
+import {PaginationControllerComponent} from "../components/MovieList/PaginationControllerComponent.tsx";
+import {MovieListCardComponent} from "../components/MovieList/MovieListCardComponent.tsx";
+import {MovieListBannedCardComponent} from "../components/MovieList/MovieListBannedCardComponent.tsx";
 import {MovieListPreloaderPage} from "../pages/MovieListPreloaderPage.tsx";
+import {usePagination} from "../hooks/usePagination.ts";
+import {useSearchQuery} from "../hooks/useSearchQuery.ts";
 
 export const MovieListLayout = () => {
     const [movies, setMovies] = useState<MovieShortened[] | null>(null)
-    const [query] = useSearchParams();
+    const {page} = usePagination();
+    const {searchQuery} = useSearchQuery();
+
+    const refreshMovies = useCallback(async (page: number) => {
+        let newMovies: MovieShortened[];
+        if (searchQuery === '') newMovies = await getMovieList(page);
+        else newMovies = await getMovieListBySearch(searchQuery, page);
+        setMovies(newMovies);
+    }, [searchQuery])
 
     useEffect(() => {
-        getMovieList(query.get('page')).then((rawData) => {
-            setMovies(rawData);
-        });
-    }, [query])
+        refreshMovies(page).then()
+    }, [page, refreshMovies])
 
     if (movies) {
         return (
@@ -28,9 +35,8 @@ export const MovieListLayout = () => {
                     }
                 </div>
 
-                <PaginationController/>
+                <PaginationControllerComponent/>
             </div>
         );
-    }
-    else return <MovieListPreloaderPage/>
+    } else return <MovieListPreloaderPage/>
 };

@@ -1,4 +1,4 @@
-﻿import {PaginationController} from "../components/Main/PaginationController.tsx";
+﻿import {PaginationControllerComponent} from "../components/MovieList/PaginationControllerComponent.tsx";
 import {MovieListCardPreloader} from "../components/Preloaders/MovieListCardPreloader.tsx";
 
 export const MovieListPreloaderPage = () => {
@@ -30,7 +30,7 @@ export const MovieListPreloaderPage = () => {
                 <MovieListCardPreloader/>
             </div>
 
-            <PaginationController/>
+            <PaginationControllerComponent/>
         </div>
     );
 };

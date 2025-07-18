@@ -12,7 +12,9 @@ export const MovieCardTitleComponent: FC<PropsType> = ({title, originalTitle}) =
                 {title}
             </h2>
             {
-                originalTitle === title || <div className='text-xs'><p>Original title:</p><p>{originalTitle}</p></div>
+                originalTitle !== title
+                    ? <div className='text-xs'><p>Original title:</p><p>{originalTitle}</p></div>
+                    : null
             }
         </div>
     );

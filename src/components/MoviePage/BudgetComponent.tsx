@@ -17,8 +17,5 @@ export const BudgetComponent: FC<PropsType> = ({budget, revenue}) => {
                 </div>
             </>
         );
-    else
-        return (
-          <></>
-        );
+    return null;
 };

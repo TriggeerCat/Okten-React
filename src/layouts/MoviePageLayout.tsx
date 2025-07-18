@@ -13,14 +13,17 @@ import {DogPage} from "../pages/DogPage.tsx";
 export const MoviePageLayout = () => {
     const [errorCheck, setErrorCheck] = useState<boolean>(false)
     const [movie, setMovie] = useState<MovieFull | null>(null)
-    const params = useParams()
+    const {id} = useParams()
+
+    const refreshMovie = async (id: string | undefined) => {
+        const movie = await getOneMovie(id);
+        if (movie.status === 404) setErrorCheck(true);
+        else setMovie(movie);
+    }
 
     useEffect(() => {
-        getOneMovie(params.id).then((rawData) => {
-            if (rawData.status === 404) setErrorCheck(true);
-            else setMovie(rawData);
-        })
-    }, [params]);
+        refreshMovie(id).then();
+    }, [id]);
 
     if (movie) return (
         <div className='pt-25 mx-25 mb-3 flex gap-10 m-auto'>

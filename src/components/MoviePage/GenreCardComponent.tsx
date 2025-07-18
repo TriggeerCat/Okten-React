@@ -1,6 +1,6 @@
 ﻿import {Genres} from "../../types/MovieFull.ts";
 import {FC} from "react";
-import {GenreIcon} from "../MovieListCard/GenreIconComponent.tsx";
+import {GenreIcon} from "../MovieList/GenreIconComponent.tsx";
 
 type PropsType = {
     genre: Genres
