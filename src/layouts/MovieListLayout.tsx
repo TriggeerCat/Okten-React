@@ -13,16 +13,16 @@ export const MovieListLayout = () => {
     const {page} = usePagination();
     const {searchQuery} = useSearchQuery();
 
-    const refreshMovies = useCallback(async (page: number) => {
+    const refreshMovies = useCallback(async (searchQuery: string, page: number) => {
         let newMovies: MovieShortened[];
         if (searchQuery === '') newMovies = await getMovieList(page);
         else newMovies = await getMovieListBySearch(searchQuery, page);
         setMovies(newMovies);
-    }, [searchQuery])
+    }, [])
 
     useEffect(() => {
-        refreshMovies(page).then()
-    }, [page, refreshMovies])
+        refreshMovies(searchQuery, page).then()
+    }, [page, refreshMovies, searchQuery])
 
     if (movies) {
         return (

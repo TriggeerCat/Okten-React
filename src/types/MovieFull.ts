@@ -14,7 +14,7 @@
     popularity: number;
     poster_path: string;
     production_companies: ProductionCompanies[];
-    production_countries: Production_countries[];
+    production_countries: ProductionCountries[];
     release_date: string;
     revenue: number;
     runtime: number;
@@ -46,7 +46,7 @@ interface ProductionCompanies {
   origin_country: string;
 }
 
-interface Production_countries {
+interface ProductionCountries {
   iso_3166_1: string;
   name: string;
 }
